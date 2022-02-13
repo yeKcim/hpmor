@@ -1,7 +1,8 @@
-# Harry Potter and the Methods Of Rationality
+# Harry Potter et les Méthodes de la Rationalité
 
-https://github.com/rjl20/hpmor  
-Maintainer: Reuben Thomas <rrt@sc3d.org>
+Traduction française de [Harry Potter and the Methods Of Rationality](http://www.hpmor.com) en [version LaTeX](https://github.com/rjl20/hpmor), très très largement basée sur [le travail de AdrienH](https://www.fanfiction.net/s/6910226/1/Harry-Potter-et-les-M%C3%A9thodes-de-la-Rationalit%C3%A9). Travail en cours.
+
+# Harry Potter and the Methods Of Rationality
 
 A LaTeX version of [the popular didactic fan-fiction](http://www.hpmor.com)
 by Eliezer Yudkowsky, which can make a PDF e-book (one file) or printable
