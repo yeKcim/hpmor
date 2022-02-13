@@ -5,9 +5,9 @@ Traduction française de [Harry Potter and the Methods Of Rationality](http://ww
 # Ce que je fais
 * Extraction du [epub vf](https://www.fanfiction.net/s/6910226/1/Harry-Potter-et-les-M%C3%A9thodes-de-la-Rationalit%C3%A9) (un epub est un zip)
 * Dans OEBPS/Text, conversion des fichiers xhtml en tex, via `for f in *.xhtml; do pandoc $f -o ${f%.*}.tex; done`
-* Quelques substitutions (« en <<, œ en \oe{},…) via sed :
+* Quelques substitutions via sed pour LaTeX (« en <<, œ en \oe{},…) et pour coller à la traduction française de Harry Potter (Draco en Drago) :
 ```
-for f in *.tex; do {sed -e ':a' -e 'N' -e '$!ba' -e 's/\n\n/⏎/g ; s/\n/ /g ; s/⏎/\r\r/g ; s/«/<</g ; s/»/>>/g ; s/œ/\\oe{}/g ; s/Œ/\\OE{}/g; s/æ/\\ae{}/g; s/Æ/\\AE{}/g' $f > ${f%.*}b.tex}; done
+for f in *.tex; do {sed -z 's/\n\n/⏎/g ; s/\n/ /g ; s/⏎/\r\r/g ; s/«/<</g ; s/»/>>/g ; s/œ/\\oe{}/g ; s/Œ/\\OE{}/g; s/æ/\\ae{}/g; s/Æ/\\AE{}/g; s/Draco/Drago/g' $f > ${f%.*}_b.tex}; done
 ```
 * Réintégration du contenu de ces tex dans la version vo latex avec quelques modifications
 * …
