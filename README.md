@@ -2,6 +2,13 @@
 
 Traduction française de [Harry Potter and the Methods Of Rationality](http://www.hpmor.com) en [version LaTeX](https://github.com/rjl20/hpmor), très très largement basée sur [le travail de AdrienH](https://www.fanfiction.net/s/6910226/1/Harry-Potter-et-les-M%C3%A9thodes-de-la-Rationalit%C3%A9). Travail en cours.
 
+# Ce que je fais
+* Extraction du [epub vf](https://www.fanfiction.net/s/6910226/1/Harry-Potter-et-les-M%C3%A9thodes-de-la-Rationalit%C3%A9) (un epub est un zip)
+* Dans OEBPS/Text, conversion des fichiers xhtml en tex, via `for f in *.xhtml; do pandoc $f -o ${f%.*}.tex; done`
+* Réintégration du contenu de ces tex dans la version vo latex avec quelques modifications (« en <<, œ en \oe{},…
+* …
+
+
 # Harry Potter and the Methods Of Rationality
 
 A LaTeX version of [the popular didactic fan-fiction](http://www.hpmor.com)
