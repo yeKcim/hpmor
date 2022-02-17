@@ -10,7 +10,8 @@ Traduction française de [Harry Potter and the Methods Of Rationality](http://ww
 for f in *.tex; do {sed -z 's/\n\n/⏎/g ; s/\n/ /g ; s/⏎/\r\r/g ; s/Draco/Drago/g s/\\ldots{}/…/g ; s/\\ldots/…/g' $f > ${f%.*}_b.tex}; done
 ```
 * Réintégration du contenu de ces tex dans la version vo latex avec quelques modifications
-* modifications impossible à automatiser : robes est trop souvent au pluriel, - au lieu de —, manque des - dans les nombres,…)
+* Mise en forme des dialogues avec « » et —
+* Modifications difficiles à automatiser : robes est trop souvent au pluriel, - au lieu de —, manque des - dans les nombres,…)
 * Un passage de grammalecte
 * etc.
 
