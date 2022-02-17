@@ -9,6 +9,11 @@ Traduction française de [Harry Potter and the Methods Of Rationality](http://ww
 ```
 for f in *.tex; do {sed -z 's/\n\n/⏎/g ; s/\n/ /g ; s/⏎/\r\r/g ; s/Draco/Drago/g s/\\ldots{}/…/g ; s/\\ldots/…/g' $f > ${f%.*}_b.tex}; done
 ```
+* Idem pour quelques fautes récurrentes :
+```
+for f in *.tex; do {sed -i -e "s/c'est à dire/c'est-à-dire/g" $f}; done
+for f in *.tex; do {sed -i -e "s/si il/s'il/g" $f}; done
+```
 * Réintégration du contenu de ces tex dans la version vo latex avec quelques modifications
 * Mise en forme des dialogues avec « » et —
 * Modifications difficiles à automatiser : robes est trop souvent au pluriel, - au lieu de —, manque des - dans les nombres,…)
