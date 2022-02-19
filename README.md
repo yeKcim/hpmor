@@ -14,6 +14,11 @@ for f in *.tex; do {sed -z 's/\n\n/⏎/g ; s/\n/ /g ; s/⏎/\r\r/g ; s/Draco/Dra
 for f in *.tex; do {sed -i -e "s/c'est à dire/c'est-à-dire/g" $f}; done
 for f in *.tex; do {sed -i -e "s/si il/s'il/g" $f}; done
 for f in *.tex; do {sed -i -e "s/quelques un/quelques-un/g" $f}; done
+for f in *.tex; do {sed -i -e "s/Serdaigles/Serdaigle/g" $f}; done
+for f in *.tex; do {sed -i -e "s/Gryffondors/Gryffondor/g" $f}; done
+for f in *.tex; do {sed -i -e "s/Serpentards/Serpentard/g" $f}; done
+for f in *.tex; do {sed -i -e "s/Poufsouffles/Poufsouffle/g" $f}; done
+…
 ```
 * Réintégration du contenu de ces tex dans la version vo latex avec quelques modifications
 * Mise en forme des dialogues avec « » et —
