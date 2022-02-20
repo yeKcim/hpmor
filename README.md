@@ -24,6 +24,10 @@ for f in *.tex; do {sed -i -e "s/Poufsouffles/Poufsouffle/g" $f}; done
 * Mise en forme des dialogues avec « » et —
 * Modifications difficiles à automatiser : robes est trop souvent au pluriel, - au lieu de —, manque des - dans les nombres,…
 * Un passage de grammalecte
+* Vérification de l’égalité des entrants/sortants {} ou <<~ et ~>>
+```
+for f in *00*.tex; do { printf "$f\n " && grep -o "{" $f | wc -l && grep -o "}" $f | wc -l && printf "\n\n" }; done
+```
 * etc.
 
 # Harry Potter and the Methods Of Rationality
