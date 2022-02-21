@@ -9,7 +9,7 @@ Traduction française de [Harry Potter and the Methods Of Rationality](http://ww
 
 ## Ce que j’ai fait
 * Extraction du [epub vf](https://www.fanfiction.net/s/6910226/1/Harry-Potter-et-les-M%C3%A9thodes-de-la-Rationalit%C3%A9) (un epub est un zip)
-* Dans OEBPS/Text, conversion des fichiers xhtml en tex, via `for f in *.xhtml; do pandoc $f -o ${f%.*}.tex; done`
+* Dans OEBPS/Text, conversion des fichiers xhtml en tex, via `for f in *.xhtml; do pandoc $f -o ${f%.*}.tex; done`{.sh}
 * Quelques substitutions via sed pour LaTeX (« \ldots » en « … » par exemple) et pour coller à la traduction française de Harry Potter (Draco en Drago) :
 ```sh
 for f in *.tex; do {sed -z 's/\n\n/⏎/g ; s/\n/ /g ; s/⏎/\r\r/g ; s/Draco/Drago/g s/\\ldots{}/…/g ; s/\\ldots/…/g' $f > ${f%.*}_b.tex}; done
