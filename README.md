@@ -42,7 +42,9 @@ for f in *.tex; do {
 ```
 * etc.
 
+# Restera à faire
 
+* Relecture linéaire complète pour retrouver les traductions bancales et fautes non corrigées automatiquement.
 
 # Harry Potter and the Methods Of Rationality
 
