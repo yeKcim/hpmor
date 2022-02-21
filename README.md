@@ -40,7 +40,7 @@ for f in *.tex; do {sed -i -e "s/Poufsouffles/Poufsouffle/g" $f}; done
 
 ## Ce que je fais (en cours… 14/122)
 
-* Réintégration du contenu de ces tex dans la version vo latex avec quelques modifications
+* Réintégration du contenu de ces tex dans la version vo latex avec quelques modifications (60/122)
 * Mise en forme des dialogues avec « » et —
 * Modifications difficiles à automatiser : robes et balais sont trop souvent au pluriel, - au lieu de —, manque des - dans les nombres,…
 * Un passage de grammalecte
