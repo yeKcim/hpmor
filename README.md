@@ -32,6 +32,11 @@ for f in *.tex; do {sed -i -e "s/Serpentards/Serpentard/g" $f}; done
 for f in *.tex; do {sed -i -e "s/Poufsouffles/Poufsouffle/g" $f}; done
 …
 ```
+* Dans vim (pas réussi avec sed), remplacement par \later :
+```vi
+:args S*.tex
+:%s/\n\~\n\n\\begin{center}\\rule{0.5\\linewidth}{0\.5pt}\\end{center}\n\n\~/\r\\later/g | update
+```
 
 ## Ce que je fais (en cours… 14/122)
 
