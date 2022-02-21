@@ -7,7 +7,7 @@ Traduction française de [Harry Potter and the Methods Of Rationality](http://ww
 </p>
 
 
-# Ce que j’ai fait
+## Ce que j’ai fait
 * Extraction du [epub vf](https://www.fanfiction.net/s/6910226/1/Harry-Potter-et-les-M%C3%A9thodes-de-la-Rationalit%C3%A9) (un epub est un zip)
 * Dans OEBPS/Text, conversion des fichiers xhtml en tex, via `for f in *.xhtml; do pandoc $f -o ${f%.*}.tex; done`
 * Quelques substitutions via sed pour LaTeX (« \ldots » en « … » par exemple) et pour coller à la traduction française de Harry Potter (Draco en Drago) :
@@ -26,7 +26,7 @@ for f in *.tex; do {sed -i -e "s/Poufsouffles/Poufsouffle/g" $f}; done
 …
 ```
 
-# Ce que je fais (en cours… 14/122)
+## Ce que je fais (en cours… 14/122)
 
 * Réintégration du contenu de ces tex dans la version vo latex avec quelques modifications
 * Mise en forme des dialogues avec « » et —
@@ -42,9 +42,11 @@ for f in *.tex; do {
 ```
 * etc.
 
-# Restera à faire
+## Restera à faire
 
 * Relecture linéaire complète pour retrouver les traductions bancales et fautes non corrigées automatiquement.
+* Attendre des contributions 😁
+
 
 # Harry Potter and the Methods Of Rationality
 
