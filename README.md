@@ -34,7 +34,11 @@ for f in *.tex; do {sed -i -e "s/Poufsouffles/Poufsouffle/g" $f}; done
 * Un passage de grammalecte
 * Vérification de l’égalité des entrants/sortants {} ou <<~ et ~>>
 ```
-for f in *00*.tex; do { printf "$f\n " && grep -o "{" $f | wc -l && grep -o "}" $f | wc -l && printf "\n\n" }; done
+for f in *.tex; do {
+ open=$(grep -o « $f | wc -l);
+ close=$(grep -o » $f | wc -l);
+ if test $open != $close; then printf "$f $open $close\n"; fi;
+} done
 ```
 * etc.
 
