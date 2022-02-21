@@ -1,12 +1,13 @@
 \input{hp-title}
 \ifcover%
-\newpagecolor{black}\afterpage{\restorepagecolor}
+\definecolor{backgroundcover}{HTML}{272c36}
+\newpagecolor{backgroundcover}\afterpage{\restorepagecolor}
 \newcommand\BackgroundPic{
 \put(0,0){%
 \parbox[b][\paperheight]{\paperwidth}{%
 \vfill%
 \centering%
-\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{cover0.jpg}%
+\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{cover1.pdf}%
 \vfill%
 }}}\AddToShipoutPicture*{\BackgroundPic}%
 \AddToShipoutPicture*{\put(0,0){%
@@ -25,7 +26,7 @@
 
 \includegraphics[scale=0.5]{bubble0.png}
 
-\Large PAR \vspace*{.25cm}
+\Large Fanfiction par \vspace*{.25cm}
 
 \huge \MakeUppercase{Eliezer Yudkowsky}%
 
