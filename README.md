@@ -52,6 +52,7 @@ for f in *.tex; do {
  if test $open != $close; then printf "$f $open $close\n"; fi;
 } done
 ```
+* Trouver une solution pour les notes de traducteur
 * etc.
 
 ## Restera à faire
