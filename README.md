@@ -2,14 +2,19 @@
 
 Traduction française de [Harry Potter and the Methods Of Rationality](http://www.hpmor.com) en [version LaTeX](https://github.com/rjl20/hpmor), très très largement basée sur [le travail de AdrienH](https://www.fanfiction.net/s/6910226/1/Harry-Potter-et-les-M%C3%A9thodes-de-la-Rationalit%C3%A9). Travail en cours.
 
-# Ce que je fais
+<p align="center">
+  <img src="https://raw.githubusercontent.com/yeKcim/hpmor/master/preview.jpg">
+</p>
+
+
+# Ce que j’ai fait
 * Extraction du [epub vf](https://www.fanfiction.net/s/6910226/1/Harry-Potter-et-les-M%C3%A9thodes-de-la-Rationalit%C3%A9) (un epub est un zip)
 * Dans OEBPS/Text, conversion des fichiers xhtml en tex, via `for f in *.xhtml; do pandoc $f -o ${f%.*}.tex; done`
 * Quelques substitutions via sed pour LaTeX (« \ldots » en « … » par exemple) et pour coller à la traduction française de Harry Potter (Draco en Drago) :
 ```
 for f in *.tex; do {sed -z 's/\n\n/⏎/g ; s/\n/ /g ; s/⏎/\r\r/g ; s/Draco/Drago/g s/\\ldots{}/…/g ; s/\\ldots/…/g' $f > ${f%.*}_b.tex}; done
 ```
-* Idem pour quelques fautes récurrentes :
+* Automatisation de plusieurs fautes récurrentes :
 ```
 for f in *.tex; do {sed -i -e "s/c'est à dire/c'est-à-dire/g" $f}; done
 for f in *.tex; do {sed -i -e "s/si il/s'il/g" $f}; done
@@ -20,6 +25,9 @@ for f in *.tex; do {sed -i -e "s/Serpentards/Serpentard/g" $f}; done
 for f in *.tex; do {sed -i -e "s/Poufsouffles/Poufsouffle/g" $f}; done
 …
 ```
+
+# Ce que je fais (en cours… 14/122)
+
 * Réintégration du contenu de ces tex dans la version vo latex avec quelques modifications
 * Mise en forme des dialogues avec « » et —
 * Modifications difficiles à automatiser : robes est trop souvent au pluriel, - au lieu de —, manque des - dans les nombres,…
@@ -29,6 +37,8 @@ for f in *.tex; do {sed -i -e "s/Poufsouffles/Poufsouffle/g" $f}; done
 for f in *00*.tex; do { printf "$f\n " && grep -o "{" $f | wc -l && grep -o "}" $f | wc -l && printf "\n\n" }; done
 ```
 * etc.
+
+
 
 # Harry Potter and the Methods Of Rationality
 
