@@ -38,10 +38,16 @@ for f in *.tex; do {sed -i -e "s/Poufsouffles/Poufsouffle/g" $f}; done
 :%s/\n\~\n\n\\begin{center}\\rule{0.5\\linewidth}{0\.5pt}\\end{center}\n\n\~/\r\\later/g | update
 ```
 * Réintégration du contenu de ces fichiers tex "autocorrigés" dans les fichiers latex VO (+quelques modifications)
+* Balai ne prend pas de s au singulier. Semi-automatisation de la suppression
+```sh
+for f in *.tex; do {sed -i -e "s/n balais/n balai/g" $f}; done
+…
+```
+* Vérifier que la compilation LaTeX est OK 
 
 ## Ce que je fais 
 
-* Vérifier que la compilation LaTeX est OK et sortir une première version
+* Sortir une première version
 * Mise en forme des dialogues avec « » et —
 * Vérification de l’égalité des entrants/sortants {} ou <<~ et ~>>
 ```sh
@@ -52,7 +58,7 @@ for f in *.tex; do {
 } done
 ```
 * Vérification avec la même technique qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
-* Modifications difficiles à automatiser : robes et balais sont trop souvent au pluriel, - au lieu de —, manque des - dans les nombres,…
+* Modifications difficiles à automatiser : robes, - au lieu de —, manque des - dans les nombres,…
 * Un passage de grammalecte
 * Trouver une solution pour les notes de traducteur
 * Check erreurs/warnings LaTeX (missing characters,…)
