@@ -217,7 +217,7 @@ def tex2html(s: str) -> str:
         flags=re.DOTALL | re.IGNORECASE,
     )
 
-    was = "{\n\\begin{center}\n\\includegraphics[scale=0.125]{Deathly_Hallows_Sign.png}\n\\end{center}\n}"
+    was = "{\n\\begin{center}\n\\includegraphics[scale=0.75]{Deathly_Hallows_Sign.pdf}\n\\end{center}\n}"
     s = s.replace(was, "")
 
     # paper notes in Chapter 13
