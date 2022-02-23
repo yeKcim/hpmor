@@ -694,32 +694,32 @@ for fileIn in sorted(glob.glob(f"{dir_tex_source}/hpmor-chapter-*.tex")):
 
     if fileBaseName == "hpmor-chapter-001":
         cont = (
-            "<h1 class='part'>Book 1: <br/>Harry James Potter-Evans-Verres<br/> and the Methods of Rationality</h1>\n"
+            "<h1 class='part'>Livre 1: <br/>Harry James Potter-Evans-Verres<br/> et les Méthodes de la Rationalité</h1>\n"
             + cont
         )
     elif fileBaseName == "hpmor-chapter-022":
         cont = (
-            "<h1 class='part'>Book 2: <br/>Harry James Potter-Evans-Verres<br/> and the Professor's Games</h1>\n"
+            "<h1 class='part'>Livre 2: <br/>Harry James Potter-Evans-Verres<br/>  et les Jeux du Professeur</h1>\n"
             + cont
         )
     elif fileBaseName == "hpmor-chapter-038":
         cont = (
-            "<h1 class='part'>Book 3: <br/>Harry James Potter-Evans-Verres<br/> and the Shadows of Death</h1>\n"
+            "<h1 class='part'>Livre 3: <br/>Harry James Potter-Evans-Verres<br/> et les Ombres de la Mort</h1>\n"
             + cont
         )
     elif fileBaseName == "hpmor-chapter-065":
         cont = (
-            "<h1 class='part'>Book 4: <br/>Hermione Jean Granger<br/> and the Phoenix's Call</h1>\n"
+            "<h1 class='part'>Livre 4: <br/>Hermione Jean Granger<br/> et l'Appel du Phoenix</h1>\n"
             + cont
         )
     elif fileBaseName == "hpmor-chapter-086":
         cont = (
-            "<h1 class='part'>Book 5: <br/>Harry James Potter-Evans-Verres<br/> and the Last Enemy</h1>\n"
+            "<h1 class='part'>Livre 5: <br/>Harry James Potter-Evans-Verres<br/> et le Dernier Ennemi</h1>\n"
             + cont
         )
     elif fileBaseName == "hpmor-chapter-100":
         cont = (
-            "<h1 class='part'>Book 6: <br/>Harry James Potter-Evans-Verres<br/> and the Philosopher's Stone</h1>\n"
+            "<h1 class='part'>Livre 6: <br/>Harry James Potter-Evans-Verres<br/> et la Pierre Philosophale</h1>\n"
             + cont
         )
 

@@ -28,7 +28,7 @@ echo 2. convert html to epub
 # linux: sudo apt install calibre
 # windows: obtain from https://calibre-ebook.com/download_windows
 echo 2.1 calibre: html to epub
-ebook-convert output/hpmor.html output/hpmor.epub --no-default-epub-cover --cover tmp/title-en.jpg --authors "Eliezer Yudkowsky" --title "Harry Potter and the Methods of Rationality" --book-producer "Torben Menke" --pubdate 2015-03-14 --language en-US
+ebook-convert output/hpmor.html output/hpmor.epub --no-default-epub-cover --cover tmp/title-en.jpg --authors "Eliezer Yudkowsky" --title "Harry Potter et les Méthodes de la Rationalité" --book-producer "Torben Menke" --pubdate 2015-03-14 --language fr-FR
 
 echo 2.2 calibre: epub to mobi
 ebook-convert output/hpmor.epub output/hpmor.mobi
