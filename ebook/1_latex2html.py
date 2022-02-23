@@ -33,18 +33,21 @@ dir_out = "output"
 for dir in (dir_tmp, dir_out):
     os.makedirs(dir, exist_ok=True)
 
+# FIXME:  \begin{align*} \hbox{\scshape still appears in epub!
 
 html_preamble = f"""
-<h2>Preamble of this e-book</h2>
-<p>The original version of this great book 'Harry Potter and the Methods of Rationality' by Eliezer Yudkowsky is:<br/>
+<h2>Préambule de ce livre électronique</h2>
+<p>La version originale de \"Harry Potter et les méthodes de rationalité\" d'Eliezer Yudkowsky est&nbsp;:
+https://www.hpmor.com<br/>
 <a href="https://www.hpmor.com">https://www.hpmor.com</a></p>
-<p>This e-book is based on the typesetting and revised text from:<br/>
-<a href="https://github.com/rjl20/hpmor">https://github.com/rjl20/hpmor</a></p>
-<p>This e-book was created at: {today}</p>
-<p>The latest version can be found at:<br/>
-<a href="https://github.com/rjl20/hpmor/releases/latest/">https://github.com/rjl20/hpmor/releases/latest/</a></p>
-<p>Source code of the converter script can be found at:<br/>
-<a href="https://github.com/rjl20/hpmor/ebook/">https://github.com/rjl20/hpmor/ebook/</a></p>
+<p>Ce livre électronique est basé sur la version LaTeX&nbsp;:<br/>
+ - <a href="https://github.com/rjl20/hpmor">https://github.com/rjl20/hpmor</a> pour la VO<br/>
+ - <a href="https://github.com/yekcim/hpmor">https://github.com/yekcim/hpmor</a> pour la VF</p>
+<p>Ce livre électronique a été créé le&nbsp;: {today}</p>
+<p>La dernière version se trouve à l'adresse suivante&nbsp;:<br/>
+<a href="https://github.com/yekcim/hpmor/releases/latest/">https://github.com/yekcim/hpmor/releases/latest/</a></p>
+<p>Le code source du script de conversion se trouve à l'adresse suivante&nbsp;:<br/>
+<a href="https://github.com/yekcim/hpmor/ebook/">https://github.com/yekcim/hpmor/ebook/</a></p>
 """
 
 # <p>This book is not my work, I just converted the text into e-book formats.</p>
@@ -117,11 +120,11 @@ span.uppercase{
 #     fh.write(css)
 
 html_start = f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="author" content="Eliezer Yudkowsky" />
-<title>Harry Potter and the Methods of Rationality</title>
+<title>Harry Potter et les Méthodes de la Rationalité</title>
 <style>
 {css}
 </style>
@@ -330,6 +333,11 @@ def tex2html(s: str) -> str:
     s = s.replace("$\mbox{P}=\mbox{NP}$", "<i>P</i>=<i>NP</i>")
     s = s.replace("\mbox{“Salazar’s—”}", "“Salazar’s—”")
     s = s.replace("170–{140}", "170–140")
+    
+	# Pour la traduction française    
+    s = s.replace("&nbsp;>>", "&nbsp;»") 
+    s = s.replace("<<&nbsp;", "«&nbsp;")   
+    s = s.replace("--- ", "—&nbsp;")   
 
     # env to delete the optional parameters from
     s = re.sub(r"\\begin\{(verse)\}\[[^\]]+\]", r"\\begin{\1}", s)
