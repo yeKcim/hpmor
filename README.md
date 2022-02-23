@@ -7,7 +7,7 @@ Traduction française de [Harry Potter and the Methods Of Rationality](http://ww
 </p>
 
 
-## Ce que j’ai fait
+## Ce que j’ai déjà fait
 * Extraction du [epub vf](https://www.fanfiction.net/s/6910226/1/Harry-Potter-et-les-M%C3%A9thodes-de-la-Rationalit%C3%A9) (un epub est un zip)
 * Dans OEBPS/Text, conversion des fichiers xhtml en tex, via
 ```sh
@@ -37,13 +37,12 @@ for f in *.tex; do {sed -i -e "s/Poufsouffles/Poufsouffle/g" $f}; done
 :args S*.tex
 :%s/\n\~\n\n\\begin{center}\\rule{0.5\\linewidth}{0\.5pt}\\end{center}\n\n\~/\r\\later/g | update
 ```
+* Réintégration du contenu de ces fichiers tex "autocorrigés" dans les fichiers latex VO (+quelques modifications)
 
-## Ce que je fais (en cours… 14/122)
+## Ce que je fais 
 
-* Réintégration du contenu de ces tex dans la version vo latex avec quelques modifications (79/122)
+* Vérifier que la compilation LaTeX est OK et sortir une première version
 * Mise en forme des dialogues avec « » et —
-* Modifications difficiles à automatiser : robes et balais sont trop souvent au pluriel, - au lieu de —, manque des - dans les nombres,…
-* Un passage de grammalecte
 * Vérification de l’égalité des entrants/sortants {} ou <<~ et ~>>
 ```sh
 for f in *.tex; do {
@@ -52,7 +51,11 @@ for f in *.tex; do {
  if test $open != $close; then printf "$f $open $close\n"; fi;
 } done
 ```
+* Vérification avec la même technique qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
+* Modifications difficiles à automatiser : robes et balais sont trop souvent au pluriel, - au lieu de —, manque des - dans les nombres,…
+* Un passage de grammalecte
 * Trouver une solution pour les notes de traducteur
+* Check erreurs/warnings LaTeX (missing characters,…)
 * etc.
 
 ## Restera à faire
