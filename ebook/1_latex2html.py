@@ -217,8 +217,8 @@ def tex2html(s: str) -> str:
     #
     # Transfiguration is not permanent!
     s = re.sub(
-        r"\\begin\{center\}(.+?Une métamorphose n'est pas permanente~!.+?)\\end\{center\}",
-        r'<div class="center">Une métamorphose n'est pas permanente&nbsp;!</div>\n',
+        r"\\begin\{center\}(.+?Une métamorphose n’est pas permanente~!.+?)\\end\{center\}",
+        r'<div class="center">Une métamorphose n’est pas permanente&nbsp;!</div>\n',
         s,
         flags=re.DOTALL | re.IGNORECASE,
     )
@@ -325,13 +325,7 @@ def tex2html(s: str) -> str:
     s = s.replace("\\vskip 1\\baselineskip plus 1\\baselineskip", "")
     s = s.replace("\\makeatother</p>", "</p>")
 
-
-
-
-
-
-
-
+    s = s.replace("\\textsuperscript{ème}", "<sup>ème</sup>")
 
     #
     # cleanup
