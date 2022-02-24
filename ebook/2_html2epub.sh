@@ -20,7 +20,8 @@ cp ../hpmor.pdf tmp/
 # 1.2b via ghostscript
 gs -dSAFER -r600 -sDEVICE=pngalpha -dFirstPage=1 -dLastPage=1 -o tmp/title-en.png tmp/hpmor.pdf
 # now imagemagick can be used for converting to the proper size
-convert -density 150 tmp/title-en.png -resize 1186x1186\> -quality 75 tmp/title-en.jpg
+convert -density 150 tmp/title-en.png -resize 1186x1186\> -strip -interlace Plane -quality 97 tmp/title-en.jpg
+
 
 echo 2. convert html to epub
 # use calibre instead of pandoc, as pandoc loses the css style

@@ -170,6 +170,9 @@ def simplify_tex(s: str) -> str:
     s = s.replace("\\OmakeIVsection{", "\\section{")
     # \latersection -> section
     s = s.replace("\\latersection{", "\\section{")
+ 
+
+	# FIXME : Have to translate this????
     # OmakeIVspecialsection
     s = re.sub(
         r"\\makeatletter\n\\newcommand{\\OmakeIVspecialsection}.*?\\chapter{Omake Files IV, Alternate Parallels}",
@@ -214,8 +217,8 @@ def tex2html(s: str) -> str:
     #
     # Transfiguration is not permanent!
     s = re.sub(
-        r"\\begin\{center\}(.+?Transfiguration is not permanent!.+?)\\end\{center\}",
-        r'<div class="center">Transfiguration is not permanent!</div>\n',
+        r"\\begin\{center\}(.+?Une métamorphose n'est pas permanente~!.+?)\\end\{center\}",
+        r'<div class="center">Une métamorphose n'est pas permanente&nbsp;!</div>\n',
         s,
         flags=re.DOTALL | re.IGNORECASE,
     )
@@ -224,7 +227,7 @@ def tex2html(s: str) -> str:
     s = s.replace(was, "")
 
     # paper notes in Chapter 13
-    if "Asking the Wrong Questions" in s:
+    if "Poser les mauvaises questions" in s:
         # \begin{align*} -> writtenNote
         myMatches = re.finditer(
             r"\\begin\{align\*\}.+?\\end\{align\*\}", s, flags=re.DOTALL | re.IGNORECASE
@@ -248,27 +251,27 @@ def tex2html(s: str) -> str:
             flags=re.DOTALL | re.IGNORECASE,
         )
         s = re.sub(
-            r"\\begin\{center\}\s*\\scshape(\nAttempt failed.*?)\\end\{center\}",
+            r"\\begin\{center\}\s*\\scshape(\nTENTATIVE ÉCHOUÉE.*?)\\end\{center\}",
             r"\\begin{writtenNote}\1\\end{writtenNote}",
             s,
             flags=re.DOTALL | re.IGNORECASE,
         )
 
     # notes in chapter 22
-    if "The Scientific Method" in s:
+    if "La méthode scientifique" in s:
         s = re.sub(
-            r"\\begin\{center\}\s*\\itshape\n\{\\scshape (Observation:)\}(.*?)\\end\{center\}",
+            r"\\begin\{center\}\s*\\itshape\n\{\\scshape (Observation~:)\}(.*?)\\end\{center\}",
             r"\\begin{writtenNote}\\textsc{\1}\2\\end{writtenNote}",
             s,
             flags=re.DOTALL | re.IGNORECASE,
         )
-        s = s.replace("{\\scshape Hypotheses:}", "\\textsc{Hypotheses:}")
-        s = s.replace("{\\scshape Tests:}", "\\textsc{Tests:}")
+        s = s.replace("{\\scshape Hypothèses~:}", "\\textsc{Hypothèses~:}")
+        s = s.replace("{\\scshape Tests~:}", "\\textsc{Tests~:}")
 
     # notes in chapter 23
-    if "Belief in Belief" in s:
+    if "Croyance en la croyance" in s:
         s = re.sub(
-            r"\\begin\{centering\}\n\\begin\{samepage\}\n\\scshape (Observation:)(.*?)\\end\{centering\}",
+            r"\\begin\{centering\}\n\\begin\{samepage\}\n\\scshape (Observation~:)(.*?)\\end\{centering\}",
             r"\\begin{writtenNote}\\textsc{\1}<br/>\2\\end{writtenNote}",
             s,
             flags=re.DOTALL | re.IGNORECASE,
@@ -278,10 +281,57 @@ def tex2html(s: str) -> str:
             r"\1",
             s,
         )
-        s = s.replace("\\scshape Hypotheses:\n\n", "\\textsc{Hypotheses:}")
-        s = s.replace("\\scshape Tests:", "\\textsc{Tests:}")
-        s = s.replace("\itshape\n", "")
-        s = s.replace("{\scshape Result:}", "<br/>Result:")
+ 
+ 
+ 
+ 
+ 
+ 
+	# Suppression de code
+  
+    s = s.replace("\\scshape Hypothèses~:\n\n", "\\textsc{Hypothèses~:}")
+    s = s.replace("\\scshape Tests~:", "\\textsc{Tests~:}")
+    s = s.replace("\itshape\n", "")
+    s = s.replace("{\scshape Résultat~:}", "<br/>Résultat~:")
+
+    s = s.replace("\hbox{\scshape", "&nbsp; ")
+    s = s.replace("\begin{align*}", "<p></p>")
+    s = s.replace("&\hbox{", " &nbsp; >")
+    s = s.replace("}<br/>", "&nbsp;<br/>")
+    s = s.replace("}</p>", "</p>")
+
+    s = s.replace("\\newsavebox{\hpbox}", "<br/>")
+    s = s.replace("\\fontspec[ExternalLocation,Color=AA0000]{Florante}", "")
+    s = s.replace("\\savebox{\hpbox}{", "")
+
+    s = s.replace("\\savebox{\hpbox}{", "")
+    s = s.replace("}\vspace{0.5ex}", "")
+    s = s.replace("\\savebox{\hpbox}{", "")
+    s = s.replace("\\usebox{\hpbox}", "")
+    s = s.replace("\\vskip -1ex", "")
+    s = s.replace("\\resizebox{\\versewidth}{.6ex}{\\rotatebox{90}{I}}", "")
+
+    s = s.replace("&nbssp;", "&nbsp; ") # FIXME : WHY !!!!!!?????????
+
+	# FIXME : STill have some \ in  epub
+
+    s = s.replace("\\vspace{0.5ex}</p>", "</p>")
+    s = s.replace("<p>\\fontspec[ExternalLocation,Color=2020FF]{ArchitectsDaughter}</p>", "<p></p>")
+
+    s = s.replace("\\makeatletter>", "")
+    s = s.replace("\\newcommand{\OmakeIVspecialsection}[2][1.5]{", "")
+    s = s.replace("\\vspace*{2\\baselineskip plus 1\\baselineskip minus 1\\baselineskip}", "")
+    s = s.replace("\\hfill\\scalebox{#1}{#2}\\hfill\\mbox", "")
+    s = s.replace("\\vskip 1\\baselineskip plus 1\\baselineskip", "")
+    s = s.replace("\\makeatother</p>", "</p>")
+
+
+
+
+
+
+
+
 
     #
     # cleanup
