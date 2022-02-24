@@ -44,11 +44,11 @@ for f in *.tex; do {sed -i -e "s/n balais/n balai/g" $f}; done
 …
 ```
 * Vérifier que la compilation LaTeX est OK 
+* Sortir une première version (22.02 !)
 
-## Ce que je fais 
+## Travail en cours
 
-* Sortir une première version
-* Mise en forme des dialogues avec « » et —
+* Mise en forme des dialogues avec « » et — (14/122)
 * Vérification de l’égalité des entrants/sortants {} ou <<~ et ~>>
 ```sh
 for f in *.tex; do {
