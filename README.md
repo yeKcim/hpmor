@@ -49,6 +49,13 @@ for f in *.tex; do {sed -i -e "s/n balais/n balai/g" $f}; done
 ## Travail en cours
 
 * Mise en forme des dialogues avec « » et — (14/122)
+```sh
+for f in *.tex; do {sed -z -i 's/"\n\n"/\r\r--- /g' $f}; done # automatisation d’une partie des dialogues
+# remplacement manuel de " par « ou », lorsqu’un « n’est pas fermé (ex:15, gros dialogue), j’ajoute %» pour que le compte soit bon
+for f in *.tex; do {sed -z -i 's/«/<<~/g ; s/»/~>>/g' $f}; done # remplacement de « et » par leurs équivalent LaTeX
+
+```
+* Un passage de grammalecte
 * Vérification de l’égalité des entrants/sortants {} ou <<~ et ~>>
 ```sh
 for f in *.tex; do {
@@ -59,7 +66,6 @@ for f in *.tex; do {
 ```
 * Vérification avec la même technique qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
 * Modifications difficiles à automatiser : robes, - au lieu de —, manque des - dans les nombres,…
-* Un passage de grammalecte
 * Trouver une solution pour les notes de traducteur
 * Check erreurs/warnings LaTeX (missing characters,…)
 * Correction du script d’export epub (pas de texte traduit dans le script, tous les \\ doivent disparaître, étrange \&nbssp;, tableau pas esthétique,…)
