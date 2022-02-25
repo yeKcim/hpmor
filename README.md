@@ -44,7 +44,7 @@ for f in *.tex; do {sed -i -e "s/n balais/n balai/g" $f}; done
 …
 ```
 * Vérifier que la compilation LaTeX est OK 
-* Sortir une première version (22.02 !)
+* Sortir une première version ([22.02](https://github.com/yeKcim/hpmor/releases/tag/v22.02) !)
 
 ## Travail en cours
 
