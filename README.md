@@ -62,6 +62,7 @@ for f in *.tex; do {
 * Un passage de grammalecte
 * Trouver une solution pour les notes de traducteur
 * Check erreurs/warnings LaTeX (missing characters,…)
+* Correction du script d’export epub (pas de texte traduit dans le script, tous les \\ doivent disparaître, étrange \&nbssp;, tableau pas esthétique,…)
 * etc.
 
 ## Restera à faire
