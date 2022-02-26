@@ -65,7 +65,7 @@ for f in *.tex; do {
 } done
 ```
 * Vérification avec la même technique qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
-* Modifications difficiles à automatiser : robes, - au lieu de —, manque des - dans les nombres,…
+* Modifications difficiles à automatiser : robes, - au lieu de — ou …, manque des - dans les nombres,…
 * Trouver une solution pour les notes de traducteur
 * Check erreurs/warnings LaTeX (missing characters,…)
 * Correction du script d’export epub (pas de texte traduit dans le script, tous les \\ doivent disparaître, étrange \&nbssp;, tableau pas esthétique,…)
