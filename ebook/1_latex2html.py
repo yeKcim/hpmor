@@ -308,8 +308,8 @@ def tex2html(s: str) -> str:
     s = s.replace("}\vspace{0.5ex}", "")
     s = s.replace("\\savebox{\hpbox}{", "")
     s = s.replace("\\usebox{\hpbox}", "")
-    s = s.replace("\\vskip -1ex", "")
-    s = s.replace("\\resizebox{\\versewidth}{.6ex}{\\rotatebox{90}{I}}", "")
+    s = s.replace("\\vskip -1.7ex", "")
+    s = s.replace("\\resizebox{\\versewidth}{.4ex}{\\rotatebox{90}{I}}", "")
 
     s = s.replace("&nbssp;", "&nbsp; ") # FIXME : WHY !!!!!!?????????
 
