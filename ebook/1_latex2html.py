@@ -301,7 +301,7 @@ def tex2html(s: str) -> str:
     s = s.replace("}</p>", "</p>")
 
     s = s.replace("\\newsavebox{\hpbox}", "<br/>")
-    s = s.replace("\\fontspec[ExternalLocation,Color=AA0000]{Florante}", "")
+    s = s.replace("\\fontspec[ExternalLocation,Color=AA0000]{Halogen}", "")
     s = s.replace("\\savebox{\hpbox}{", "")
 
     s = s.replace("\\savebox{\hpbox}{", "")
