@@ -45,7 +45,7 @@ for f in *.tex; do {sed -i -e "s/n balais/n balai/g" $f}; done
 ```
 * Vérifier que la compilation LaTeX est OK 
 * Sortir une première version ([22.02](https://github.com/yeKcim/hpmor/releases/tag/v22.02) !)
-* Police spécifique pour le fourchelangue
+* Police spécifique pour les dialogues en fourchelangue ([j’en discute ici](https://github.com/rjl20/hpmor/pull/43) avec le mainteneur de la version anglaise)
 <p align="center">
   <img src="https://raw.githubusercontent.com/yeKcim/hpmor/master/preview-parseltongue.png">
 </p>
