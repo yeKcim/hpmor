@@ -54,7 +54,7 @@ for f in *.tex; do {sed -i -e "s/n balais/n balai/g" $f}; done
 
 ## Travail en cours
 
-* Mise en forme des dialogues avec « » et — (14/122)
+* Mise en forme des dialogues avec « » et — (62/122)
 ```sh
 for f in *.tex; do {sed -z -i 's/"\n\n"/\r\r--- /g' $f}; done # automatisation d’une partie des dialogues
 # remplacement manuel de " par « ou », lorsqu’un « n’est pas fermé (ex:15, gros dialogue), j’ajoute %» pour que le compte soit bon
