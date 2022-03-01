@@ -71,6 +71,20 @@ for f in *.tex; do {
 } done
 ```
 * Vérification avec la même technique qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
+```sh
+for f in *.tex; do {
+ compte=$(grep -o "parsel{" $f | wc -l);
+ if test $compte != "0"; then printf "$f : $compte\n"; fi;
+} done
+```
+* Vérifier qu’il n'y a plus de double-quote
+```
+for f in *.tex; do {
+ compte=$(grep -o "\"" $f | wc -l);
+ if test $compte != "0"; then printf "$f : $compte\n"; fi;
+} done
+```
+Il faudra refaire les comptes de “,”,«,»,{,} pour voir si on reste bien pair et <,> pour un multiple de 4.
 * Modifications difficiles à automatiser : robes, - au lieu de — ou …, manque des - dans les nombres,…
 * Trouver une solution pour les notes de traducteur
 * Toujours utiliser des styles, ne jamais mettre de code de mise en forme directement dans le code
