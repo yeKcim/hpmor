@@ -49,6 +49,7 @@ for f in *.tex; do {sed -i -e "s/n balais/n balai/g" $f}; done
 <p align="center">
   <img src="https://raw.githubusercontent.com/yeKcim/hpmor/master/preview-parseltongue.png">
 </p>
+
 * Mise en forme des dialogues avec « » et — (62/122)
 ```sh
 for f in *.tex; do {sed -z -i 's/"\n\n"/\r\r--- /g' $f}; done # automatisation d’une partie des dialogues
