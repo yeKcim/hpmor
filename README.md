@@ -54,10 +54,9 @@ for f in *.tex; do {sed -i -e "s/n balais/n balai/g" $f}; done
 for f in *.tex; do {sed -z -i 's/"\n\n"/\r\r--- /g' $f}; done # automatisation d’une partie des dialogues
 # remplacement manuel de " par « ou », lorsqu’un « n’est pas fermé (ex:15, gros dialogue), j’ajoute %» pour que le compte soit bon
 for f in *.tex; do {sed -z -i 's/«/<<~/g ; s/»/~>>/g' $f}; done # remplacement de « et » par leurs équivalent LaTeX
-
 ```
 * Vérifier qu’il n'y a plus de double-quote
-```
+```sh
 for f in *.tex; do {
  compte=$(grep -o "\"" $f | wc -l);
  if test $compte != "0"; then printf "$f : $compte\n"; fi;
@@ -72,7 +71,7 @@ for f in *.tex; do {
 } done
 ```
 Pour détecteur où se situe l’erreur dans le fichier, j’ai pour l’instant trouver ce pauvre hack :
-```
+```sh
 grep -o "<<~\|~>>" hpmor-chapter-120.tex | sed ':a;N;$!ba;s/\n//g' | grep --color "<<~~>>"
 ```
 En affichant par paquet de 20 <<~~>> il était facile d’ouvrir le fichier avec vim et de taper `154n` après `/<<\~\|\~>>`, un vrai compte automatique serait plus malin mais ce soir je n’avais pas envie de chercher plus loin. Je ne m’attendais pas à autant de bugs repérés ainsi automatiquemnt dans les guillemets (77 !), il y en a certainement encore plein mais les erreurs évidente de non égalité entrants-sortants sont déjà un premier bon point.
