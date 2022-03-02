@@ -63,9 +63,7 @@ for f in *.tex; do {
  if test $compte != "0"; then printf "$f : $compte\n"; fi;
 } done
 ```
-
-## Travail en cours
-* Vérification de l’égalité des entrants/sortants {} ou <<~ et ~>>
+* Vérification de l’égalité des entrants/sortants {} “” ou <<~~>>
 ```sh
 for f in *.tex; do {
  open=$(grep -o « $f | wc -l);
@@ -73,6 +71,13 @@ for f in *.tex; do {
  if test $open != $close; then printf "$f $open $close\n"; fi;
 } done
 ```
+Pour détecteur où se situe l’erreur dans le fichier, j’ai pour l’instant trouver ce pauvre hack :
+```
+grep -o "<<~\|~>>" hpmor-chapter-120.tex | sed ':a;N;$!ba;s/\n//g' | grep --color "<<~~>>"
+```
+En affichant par paquet de 20 <<~~>> il était facile d’ouvrir le fichier avec vim et de taper `154n` après `/<<\~\|\~>>`, un vrai compte automatique serait plus malin mais ce soir je n’avais pas envie de chercher plus loin. Je ne m’attendais pas à autant de bugs repérés ainsi automatiquemnt dans les guillemets (77 !), il y en a certainement encore plein mais les erreurs évidente de non égalité entrants-sortants sont déjà un premier bon point.
+
+## Travail en cours
 * Un passage de grammalecte
 * Vérification avec la même technique qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
 ```sh
