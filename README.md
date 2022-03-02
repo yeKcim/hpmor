@@ -86,11 +86,10 @@ for f in *.tex; do {
  if test $compte != "0"; then printf "$f : $compte\n"; fi;
 } done
 ```
-* Il faudra refaire les comptes de “,”,«,»,{,} pour voir si on reste bien pair et <,> pour un multiple de 4.
 * Modifications difficiles à automatiser : robes, - au lieu de — ou …, manque des - dans les nombres,…
 * Trouver une solution pour les notes de traducteur
 * Toujours utiliser des styles, ne jamais mettre de code de mise en forme directement dans le code
-* Une police manuscrite pour les courriers ?
+* Une [police manuscrite](https://www.dafont.com/fr/tangerine.font) pour les courriers ?
 * Check erreurs/warnings LaTeX (missing characters,…)
 * Correction du script d’export epub (pas de texte traduit dans le script, tous les \\ doivent disparaître, étrange \&nbssp;, tableau pas esthétique,…)
 * etc.
