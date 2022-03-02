@@ -49,33 +49,12 @@ for f in *.tex; do {sed -i -e "s/n balais/n balai/g" $f}; done
 <p align="center">
   <img src="https://raw.githubusercontent.com/yeKcim/hpmor/master/preview-parseltongue.png">
 </p>
-
-
-
-## Travail en cours
-
 * Mise en forme des dialogues avec « » et — (62/122)
 ```sh
 for f in *.tex; do {sed -z -i 's/"\n\n"/\r\r--- /g' $f}; done # automatisation d’une partie des dialogues
 # remplacement manuel de " par « ou », lorsqu’un « n’est pas fermé (ex:15, gros dialogue), j’ajoute %» pour que le compte soit bon
 for f in *.tex; do {sed -z -i 's/«/<<~/g ; s/»/~>>/g' $f}; done # remplacement de « et » par leurs équivalent LaTeX
 
-```
-* Un passage de grammalecte
-* Vérification de l’égalité des entrants/sortants {} ou <<~ et ~>>
-```sh
-for f in *.tex; do {
- open=$(grep -o « $f | wc -l);
- close=$(grep -o » $f | wc -l);
- if test $open != $close; then printf "$f $open $close\n"; fi;
-} done
-```
-* Vérification avec la même technique qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
-```sh
-for f in *.tex; do {
- compte=$(grep -o "parsel{" $f | wc -l);
- if test $compte != "0"; then printf "$f : $compte\n"; fi;
-} done
 ```
 * Vérifier qu’il n'y a plus de double-quote
 ```
@@ -84,7 +63,25 @@ for f in *.tex; do {
  if test $compte != "0"; then printf "$f : $compte\n"; fi;
 } done
 ```
-Il faudra refaire les comptes de “,”,«,»,{,} pour voir si on reste bien pair et <,> pour un multiple de 4.
+
+## Travail en cours
+* Vérification de l’égalité des entrants/sortants {} ou <<~ et ~>>
+```sh
+for f in *.tex; do {
+ open=$(grep -o « $f | wc -l);
+ close=$(grep -o » $f | wc -l);
+ if test $open != $close; then printf "$f $open $close\n"; fi;
+} done
+```
+* Un passage de grammalecte
+* Vérification avec la même technique qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
+```sh
+for f in *.tex; do {
+ compte=$(grep -o "parsel{" $f | wc -l);
+ if test $compte != "0"; then printf "$f : $compte\n"; fi;
+} done
+```
+* Il faudra refaire les comptes de “,”,«,»,{,} pour voir si on reste bien pair et <,> pour un multiple de 4.
 * Modifications difficiles à automatiser : robes, - au lieu de — ou …, manque des - dans les nombres,…
 * Trouver une solution pour les notes de traducteur
 * Toujours utiliser des styles, ne jamais mettre de code de mise en forme directement dans le code
