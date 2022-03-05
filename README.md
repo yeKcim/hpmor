@@ -87,6 +87,7 @@ cd ${HOME}/.config/enchant/ && mv fr_FR.dic{,.bak}
 ln -s '…gitdirectory…/hpmor/spelling-list.txt' fr_FR.dic
 ```
 * Remplacement des 'citations' par “citations” 
+* Modification difficile à automatiser : robes trop souvent au pluriel (en anglais toujours au pluriel)
 
 ## Travail en cours
 * Un passage de grammalecte
@@ -97,7 +98,7 @@ for f in *.tex; do {
  if test $compte != "0"; then printf "$f : $compte\n"; fi;
 } done
 ```
-* Modifications difficiles à automatiser : robes, - au lieu de — ou …, manque des - dans les nombres,…
+* Modifications difficiles à automatiser : - au lieu de — ou …, manque des - dans des nombres,…
 * Trouver une solution pour les notes de traducteur
 * Toujours utiliser des styles, ne jamais mettre de code de mise en forme directement dans le code
 * Une [police manuscrite](https://www.dafont.com/fr/tangerine.font) pour les courriers ?
