@@ -86,6 +86,8 @@ for f in *.tex; do {sed -z -i "s/ \n/\r/g" $f}; done
 cd ${HOME}/.config/enchant/ && mv fr_FR.dic{,.bak} 
 ln -s '…gitdirectory…/hpmor/spelling-list.txt' fr_FR.dic
 ```
+* Remplacement des 'citations' par “citations” 
+
 ## Travail en cours
 * Un passage de grammalecte
 * Vérification qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
