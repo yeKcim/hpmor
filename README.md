@@ -88,9 +88,11 @@ ln -s '…gitdirectory…/hpmor/spelling-list.txt' fr_FR.dic
 ```
 * Remplacement des 'citations' par “citations” 
 * Modification difficile à automatiser : robes trop souvent au pluriel (en anglais toujours au pluriel)
+* Un passage de grammalecte (plus de 1000 corrections !)
 
 ## Travail en cours
-* Un passage de grammalecte
+* Corriger l’affichage qui dépasse d’une page
+* Corriger les accents dans les pages titres
 * Vérification qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
 ```sh
 for f in *.tex; do {
@@ -107,10 +109,8 @@ for f in *.tex; do {
 * etc.
 
 ## Restera à faire
-
 * Relecture linéaire complète pour retrouver les traductions bancales et fautes non corrigées automatiquement.
 * Attendre des contributions 😁
-
 
 # Harry Potter and the Methods Of Rationality
 
