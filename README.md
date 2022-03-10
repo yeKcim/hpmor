@@ -89,9 +89,9 @@ ln -s '…gitdirectory…/hpmor/spelling-list.txt' fr_FR.dic
 * Remplacement des 'citations' par “citations” 
 * Modification difficile à automatiser : robes trop souvent au pluriel (en anglais toujours au pluriel)
 * Un passage de grammalecte (plus de 1000 corrections !)
+* Corriger le bug de texte qui dépasse d’une page du chapitre 23 et Omaké 4
 
 ## Travail en cours
-* Corriger le bug de texte qui dépasse d’une page du chapitre 23 et Omaké 4
 * Corriger les accents dans les pages titres
 * Modifications difficiles à automatiser : - au lieu de — ou …, manque des - dans des nombres,…
 * Traduire les bouts non traduits
