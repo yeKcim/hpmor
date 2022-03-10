@@ -90,11 +90,12 @@ ln -s '…gitdirectory…/hpmor/spelling-list.txt' fr_FR.dic
 * Modification difficile à automatiser : robes trop souvent au pluriel (en anglais toujours au pluriel)
 * Un passage de grammalecte (plus de 1000 corrections !)
 * Corriger le bug de texte qui dépasse d’une page du chapitre 23 et Omaké 4
+* Les notes du traducteur sont maintenant séparées des notes de l’auteur
 
 ## Travail en cours
-* Corriger les accents dans les pages titres
+* Corriger les accents dans les pages de titre des volumes
 * Modifications difficiles à automatiser : - au lieu de — ou …, manque des - dans des nombres,…
-* Traduire les bouts non traduits
+* Traduire les extraits non traduits
 * Vérification qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
 ```sh
 for f in *.tex; do {
@@ -103,8 +104,7 @@ for f in *.tex; do {
 } done
 ```
 
-* Trouver une solution pour les notes de traducteur
-* Toujours utiliser des styles, ne jamais mettre de code de mise en forme directement dans le code
+* Toujours utiliser des styles, ne jamais mettre de code de mise en forme directement dans le contenu
 * Une [police manuscrite](https://www.dafont.com/fr/tangerine.font) pour les courriers ?
 * Check erreurs/warnings LaTeX (missing characters,…)
 * Correction du script d’export epub (pas de texte traduit dans le script, tous les \\ doivent disparaître, étrange \&nbssp;, tableau pas esthétique,…)
