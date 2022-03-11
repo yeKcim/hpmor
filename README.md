@@ -92,6 +92,7 @@ ln -s '…gitdirectory…/hpmor/spelling-list.txt' fr_FR.dic
 * Corriger le bug de texte qui dépasse d’une page du chapitre 23 et Omaké 4
 * Les notes du traducteur sont maintenant séparées des notes de l’auteur
 * Corriger les accents dans les pages de titre des volumes
+* Une police manuscrite pour les extraits écrits à la main (courriers par exemple) (pas la police [tangerine](https://www.dafont.com/fr/tangerine.font) comme initialement prévue car elle manque un peu de lisibilité).
 
 ## Travail en cours
 * Modifications difficiles à automatiser : - au lieu de — ou …, manque des - dans des nombres,…
@@ -104,7 +105,6 @@ for f in *.tex; do {
 } done
 ```
 * Toujours utiliser des styles, ne jamais mettre de code de mise en forme directement dans le contenu
-* Une [police manuscrite](https://www.dafont.com/fr/tangerine.font) pour les courriers ?
 * Check erreurs/warnings LaTeX (missing characters,…)
 * Correction du script d’export epub (pas de texte traduit dans le script, tous les \\ doivent disparaître, étrange \&nbssp;, tableau pas esthétique,…)
 * etc.
