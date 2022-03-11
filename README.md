@@ -93,6 +93,10 @@ ln -s '…gitdirectory…/hpmor/spelling-list.txt' fr_FR.dic
 * Les notes du traducteur sont maintenant séparées des notes de l’auteur
 * Corriger les accents dans les pages de titre des volumes
 * Une police manuscrite pour les extraits écrits à la main (courriers par exemple) (pas la police [tangerine](https://www.dafont.com/fr/tangerine.font) comme initialement prévue car elle manque un peu de lisibilité).
+<p align="center">
+  <img src="https://raw.githubusercontent.com/yeKcim/hpmor/master/preview-written.png">
+</p>
+
 
 ## Travail en cours
 * Modifications difficiles à automatiser : - au lieu de — ou …, manque des - dans des nombres,…
