@@ -91,11 +91,11 @@ ln -s '…gitdirectory…/hpmor/spelling-list.txt' fr_FR.dic
 * Un passage de grammalecte (plus de 1000 corrections !)
 * Corriger le bug de texte qui dépasse d’une page du chapitre 23 et Omaké 4
 * Les notes du traducteur sont maintenant séparées des notes de l’auteur
+* Corriger les accents dans les pages de titre des volumes
 
 ## Travail en cours
-* Corriger les accents dans les pages de titre des volumes
 * Modifications difficiles à automatiser : - au lieu de — ou …, manque des - dans des nombres,…
-* Traduire les extraits non traduits
+* Traduire les quelques extraits toujours en anglais
 * Vérification qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
 ```sh
 for f in *.tex; do {
@@ -103,7 +103,6 @@ for f in *.tex; do {
  if test $compte != "0"; then printf "$f : $compte\n"; fi;
 } done
 ```
-
 * Toujours utiliser des styles, ne jamais mettre de code de mise en forme directement dans le contenu
 * Une [police manuscrite](https://www.dafont.com/fr/tangerine.font) pour les courriers ?
 * Check erreurs/warnings LaTeX (missing characters,…)
