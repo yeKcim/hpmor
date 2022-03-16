@@ -96,10 +96,10 @@ ln -s '…gitdirectory…/hpmor/spelling-list.txt' fr_FR.dic
 <p align="center">
   <img src="https://raw.githubusercontent.com/yeKcim/hpmor/master/preview-written.png">
 </p>
-
+* Nouvelle couverture
+* Modifications difficiles à automatiser : - au lieu de — ou …, manque des - dans des nombres,…
 
 ## Travail en cours
-* Modifications difficiles à automatiser : - au lieu de — ou …, manque des - dans des nombres,…
 * Traduire les quelques extraits toujours en anglais
 * Vérification qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
 ```sh
