@@ -50,7 +50,7 @@ for f in *.tex; do {sed -i -e "s/n balais/n balai/g" $f}; done
   <img src="https://raw.githubusercontent.com/yeKcim/hpmor/master/preview-parseltongue.png">
 </p>
 
-* Mise en forme des dialogues avec « » et — (62/122)
+* Mise en forme des dialogues avec « » et —
 ```sh
 for f in *.tex; do {sed -z -i 's/"\n\n"/\r\r--- /g' $f}; done # automatisation d’une partie des dialogues
 # remplacement manuel de " par « ou », lorsqu’un « n’est pas fermé (ex:15, gros dialogue), j’ajoute %» pour que le compte soit bon
@@ -98,8 +98,11 @@ ln -s '…gitdirectory…/hpmor/spelling-list.txt' fr_FR.dic
 </p>
 * Nouvelle couverture
 * Modifications difficiles à automatiser : - au lieu de — ou …, manque des - dans des nombres,…
+* Sortir une nouvelle version ([22.03](https://github.com/yeKcim/hpmor/releases/tag/v22.03) !)
 
 ## Travail en cours
+* Correction du script d’export epub (pas de texte traduit dans le script, tous les \\ doivent disparaître, étrange \&nbssp;, tableau pas esthétique,…)
+* epub : Trop d’espaces dans les dialogues, pas de chapitrage, pas de polices intégrées, pas de notes d’auteur/traducteur correctement gérées…
 * Traduire les quelques extraits toujours en anglais
 * Vérification qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
 ```sh
@@ -110,7 +113,6 @@ for f in *.tex; do {
 ```
 * Toujours utiliser des styles, ne jamais mettre de code de mise en forme directement dans le contenu
 * Check erreurs/warnings LaTeX (missing characters,…)
-* Correction du script d’export epub (pas de texte traduit dans le script, tous les \\ doivent disparaître, étrange \&nbssp;, tableau pas esthétique,…)
 * etc.
 
 ## Restera à faire
