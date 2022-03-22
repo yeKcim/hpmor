@@ -56,8 +56,8 @@ https://www.hpmor.com<br/>
 
 css = """
 div.letter {
-	font-style: italic;
-	margin-left: 1em;
+    font-style: italic;
+    margin-left: 1em;
 }
 div.verse {
     margin-left: 1em;
@@ -83,34 +83,34 @@ div.emph {
 }
 
 span.abbrev{
-	text-transform: lowercase;
-	font-variant: small-caps;
+    text-transform: lowercase;
+    font-variant: small-caps;
 }
 span.prophesy{
-	font-variant: small-caps;
+    font-variant: small-caps;
 }
 span.scream{
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
 span.shout{
-	font-variant: small-caps;
+    font-variant: small-caps;
 }
 span.parsel{
-	font-style: italic;
+    font-style: italic;
 }
 span.headline_header{
 }
 span.headline{
-	font-style: italic;
+    font-style: italic;
 }
 span.headline_label{
-	font-variant: small-caps;
+    font-variant: small-caps;
 }
 span.smallcaps{
-	font-variant: small-caps;
+    font-variant: small-caps;
 }
 span.uppercase{
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
 """
 
@@ -172,7 +172,7 @@ def simplify_tex(s: str) -> str:
     s = s.replace("\\latersection{", "\\section{")
  
 
-	# FIXME : Have to translate this????
+    # FIXME : Have to translate this????
     # OmakeIVspecialsection
     s = re.sub(
         r"\\makeatletter\n\\newcommand{\\OmakeIVspecialsection}.*?\\chapter{Omake Files IV, Alternate Parallels}",
@@ -287,7 +287,7 @@ def tex2html(s: str) -> str:
  
  
  
-	# Suppression de code
+    # Suppression de code
   
     s = s.replace("\\scshape Hypothèses~:\n\n", "\\textsc{Hypothèses~:}")
     s = s.replace("\\scshape Tests~:", "\\textsc{Tests~:}")
@@ -313,7 +313,7 @@ def tex2html(s: str) -> str:
 
     s = s.replace("&nbssp;", "&nbsp; ") # FIXME : WHY !!!!!!?????????
 
-	# FIXME : STill have some \ in  epub
+    # FIXME : STill have some \ in  epub
 
     s = s.replace("\\vspace{0.5ex}</p>", "</p>")
     s = s.replace("<p>\\fontspec[ExternalLocation,Color=2020FF]{ArchitectsDaughter}</p>", "<p></p>")
@@ -325,7 +325,14 @@ def tex2html(s: str) -> str:
     s = s.replace("\\vskip 1\\baselineskip plus 1\\baselineskip", "")
     s = s.replace("\\makeatother</p>", "</p>")
 
-    s = s.replace("\\textsuperscript{ème}", "<sup>ème</sup>")
+    s = s.replace("\\textsuperscript{e}", "<sup>e</sup>")
+
+    # FIXME FIXME FIXME FIXME FIXME FIXME FIXME FIXME FIXME FIXME FIXME FIXME
+    s = s.replace("\\begin{writtenNote}", "<br/>")
+    s = s.replace("\\end{writtenNote}", "<br/>")
+    s = s.replace("\\centering", "")
+    s = s.replace("\\textsc{\\underline{INSTRUCTIONS POUR LE JEU&nbsp;:}}", "<span style=\"text-decoration: underline;\">INSTRUCTIONS POUR LE JEU&nbsp;:</span>") # FIXME
+    # FIXME \textsc{\underline{AVERTISSEMENT}}
 
     #
     # cleanup
@@ -378,7 +385,7 @@ def tex2html(s: str) -> str:
     s = s.replace("\mbox{“Salazar’s—”}", "“Salazar’s—”")
     s = s.replace("170–{140}", "170–140")
     
-	# Pour la traduction française    
+    # Pour la traduction française    
     s = s.replace("&nbsp;>>", "&nbsp;»") 
     s = s.replace("<<&nbsp;", "«&nbsp;")   
     s = s.replace("--- ", "—&nbsp;")   
@@ -631,6 +638,8 @@ def tex2html(s: str) -> str:
         womit = f" [Author's Note: <i>{myMatch.group(2).strip()}</i>] "
         # womit = convert_footnotes(myMatch.group(2), authorsnote=False)
         s = s.replace(was, womit)
+
+    # FIXME footnotes_translatorsnotetext
 
     # leftovers
     s = re.sub(r"\{\s*\}", r"", s, flags=re.DOTALL)
