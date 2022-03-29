@@ -1,19 +1,43 @@
 #/bin/bash
 
-pandoc hpmor.tex -o hpmor_text.html
+`pandoc hpmor.tex -s -o hpmor_text.html`
+* -s permet d’ajouter un entête html
+
+Cette solution ne convient pas car les "\parsel" et "\McGonagallWhiteBoard", "\writtennote",… (newcommand/macro) sont vidés !
+
+`pandoc -s ../hpmor.tex -o hpmor_flatten.html -f markdown-latex_macros --metadata title="HPMOR"`
+essayé aussi avec -f markdown+latex_macros, aucun ne fonctionne… (que ce soit à partir du fichier hpmor.tex ou la version flatten…)
+
+Créer un fichier latex unique :
+`python ebook/latex-flatten.py hpmor.tex hpmor_flatten.tex`
+
+Donne des erreurs :
+* `tex4ebook -x hpmor.tex`
+* `make4ht -ux hpmor.tex out.html`
+* `hevea hpmor_flatten.tex -o hpmor.html`
+* `plasTeX`
+* `latexml --destination=out.html --includestyles hpmor_flatten.tex`
+
+
+
+```
 sed -i 's/\&lt\;\&lt\; /«\&nbsp\;/g ; s/ \&gt\;\&gt\;/\&nbsp\;»/g' hpmor_text.html
 sed -i 's/\~: }\&amp\;\\hbox{\\scshape /\&nbsp\;: /g  ;  s/\\hbox{\\scshape //g  ;  s/\$\$\\begin{aligned}//g  ;  s/}\\end{aligned}\$\$//g  ;  s/}\\\\/<br\/>/g' hpmor_text.html
-
-ligne 260 vide (writtennote)
-
-
-ligne 7232 (la métamorphose…)
-
-<div class="center">
-<p>-1.7ex</p>
-</div>
-
 pandoc hpmor_text.html -o hpmor_text.epub
+```
+
+
+
+
+Essai peut-être envisageable en passant par une étape md…
+```
+python ebook/latex-flatten.py hpmor.tex hpmor_flatten.tex 	 		# flatten
+pandoc hpmor_flatten.tex -f markdown+latex_macros -s -o hpmor.md	# md
+```
+
+
+
+
 
 
 
@@ -53,10 +77,4 @@ pandoc hpmor_text.html -o hpmor_text.epub
 <body>
 
 
-
-
-
-Autre essai, dans un tex…
-
-pandoc hpmor.tex -o hpmor_text.tex
 
