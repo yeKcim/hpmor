@@ -55,65 +55,14 @@ Je fais un essai en ajoutant la définition d’une newcommand directement au d�
 pandoc hpmor_flatten.tex -f latex+latex_macros -o hpmor.html
 ```
 
-Ne fonctionne pas car il y a un blocage pour 2 passages sous forme de code. Pour le test, je supprime simplement ces deux passages. Et cette macro est alors bien convertie !
-
-Je fais le même essai en ajoutant toutes les définitions via `\input{hp-header}` au début de flatten ! (et qu’on supprime les 2 trucs qui gêne)
-
-
-
-
-```sh
-#/bin/bash
-python ebook/latex-flatten.py hpmor.tex hpmor_flatten.tex
-sed -i '1i\\\input{hp-header}\n' hpmor_flatten.tex
-sed -i 's/<<\~/« /g ; s/\~>>/ »/g' hpmor_flatten.tex
-pandoc -s hpmor_flatten.tex -o hpmor.epub -f latex+latex_macros --metadata title="Harry Potter et les méthodes de la Rationalité"
-
+Ne fonctionne pas car il y a un blocage pour 2 passages sous forme de code. Pour le test, je supprime simplement ces deux passages. Et cette macro est alors bien convertie ! Je fais le même essai en ajoutant toutes les définitions via `\input{hp-header}` au début de flatten ! (et qu’on supprime les 2 trucs qui gêne).
 ```
 
 Je supprime le début du chapitre 86 :
 
 ```latex
 \begin{headlines}
-
-\header{(Gros titres internationaux du 7 avril 1992)}
-
-\label{Tribune Magique de Toronto~:}
-
-\headline{Magenmagot britannique\\
-rapporte avoir vu “survivant”\\
-faire peur à un détraqueur}
-
-\headline{Expert en créatures magiques~:\\
-<<~il faudrait vraiment arrêter de mentir~>>}
-
-\headline{france et allemagne accusent angleterre\\
-d'avoir tout inventé}
-
-\label{Revue diurne de l'enchanteur néo-zélandais~:}
-
-\headline{Qui a rendu folle la législature anglaise~?\\
-Notre gouvernement prochain en lice~?}
-
-\headline{Expert liste les 28 meilleures raisons\\
-de croire que c'est déjà le cas}
-
-\label{Le Mage Américain~:}
-
-\headline{Clan de loups-garous deviennent\\
-premiers habitants du Wyoming}
-
-\label{Le Chicaneur~:}
-
-\headline{Malfoy fuit poudlard\\
-à l'éveil de ses pouvoirs vélane}
-
-\label{Gazette du Sorcier~:}
-
-\headline{Faille juridique libère\\
-<<~moldue cinglée~>>\\
-et Potter menace ministère\\
-d'attaquer Azkaban}
+[…]
 \end{headlines}
 
 ```
@@ -123,18 +72,23 @@ Il y a encore pas mal de problèmes dans le epub mais c’est déjà une grande 
 
 # Étape par étape…
 
-J’ai remplacé << par « et >> par » directement dans les chapitres tex, cela n’empêche en rien d’obtenir un pdf correct et m’évite la ligne sed du script. Il est donc un petit peu simplifié :
+J’ai remplacé << par « et >> par » directement dans les chapitres tex, cela n’empêche en rien d’obtenir un pdf correct et m’évite la ligne sed du script. Il est donc un petit peu simplifié.
+
+# Latexpand
+
+Latexpand est un logiciel ayant la même utilité que le script python latex-flatten. Le fichier de sortie étant un peu différent, je tente le coup pour voir si c’est mieux… Le résultat étant sensiblement identique, je supprime latex-flatten.py, remplacé par une commande latex fournie dans texlive…
+
+
+# begin{headlines} / end{headlines}
+
+En supprimant ces deux lignes, la conversion en epub se fait, ce sont les deux seules lignes du chapitres 86 qui semblent poser problème. Le script converti directement en epub sans modification
 
 ```sh
-#/bin/bash
-python ebook/latex-flatten.py hpmor.tex hpmor_flatten.tex
-sed -i '1i\\\input{hp-header}\n' hpmor_flatten.tex
-pandoc -s hpmor_flatten.tex -o hpmor.epub -f latex+latex_macros --metadata title="Harry Potter et les méthodes de la Rationalité"
+latexpand hpmor.tex -o hpmor_flatten.tex                                                                                            # flatten tex
+sed -i '1i\\\input{hp-header}\n' hpmor_flatten.tex                                                                                  # + header pour les def \newcommand
+sed -i '/\\begin{headlines}/d ; /\\end{headlines}/d' hpmor_flatten.tex                                                              # - \headlines (can't generate epub)
+pandoc -s hpmor_flatten.tex -o hpmor.epub -f latex+latex_macros --metadata title="Harry Potter et les méthodes de la Rationalité" 	# tex to epub
 ```
-
-
-
-
 
 
 # Reste à voir
