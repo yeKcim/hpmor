@@ -28,7 +28,7 @@
 
 % Special types of text
 \newcommand{\abbrev}[1]{\textsc{\MakeLowercase{#1}}\xspace}
-\newcommand{\headline}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\headline}[1]{\begin{center}\textsc{\fontspec[ExternalLocation]{FreeMonoBold.ttf}#1}\end{center}}
 
 % Common abbreviations
 \newcommand{\am}{~a.m.\xspace}
@@ -36,11 +36,12 @@
 \newcommand{\SPHEW}{{\abbrev{SPHEW}}}
 
 % Newspaper headlines
-\newcommand{\inlineheadline}[1]{\textsc{#1}}
+\newcommand{\inlineheadline}[1]{\textsc{\fontspec[ExternalLocation]{FreeMonoBold.ttf}#1}}
+
 \newenvironment{headlines}{
   \newcommand{\header}[1]{\begin{SingleSpace}\upshape ##1\end{SingleSpace}}
   \let\hmorSavedLabel\label
-  \renewcommand{\label}[1]{{\upshape\itshape ##1}}%
+  \renewcommand{\label}[1]{{\upshape\itshape\begin{flushleft}##1\end{flushleft}}}%
   \begin{Spacing}{0.75}
   \begin{center}
   \scshape
