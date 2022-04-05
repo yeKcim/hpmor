@@ -21,7 +21,7 @@
 \newcommand\McGonagallWhiteBoard[1]{
 	\begin{center}
 		\fontspec[ExternalLocation,Color=AA0000]{Automobile Contest.ttf}
-		\textcolor{blue}{\underline{\textcolor{red}{\HUGE{#1}}}}
+		\textcolor{blue}{\HUGE{\underline{\textcolor{red}{#1}}}}
 	\end{center}
 }
 
@@ -63,7 +63,6 @@
 \newcommand{\letterClosing}[2][\vskip 1\baselineskip]{\nopagebreak[4]\fontspec[ExternalLocation]{Graphe_Alpha_alt.ttf}\scriptsize#1\par\nopagebreak[5]\noindent#2}
 
 \newenvironment{writtenNote}{\fontspec[ExternalLocation]{Graphe_Alpha_alt.ttf}\scriptsize%
-  \renewcommand{\emph}{\uline}
   \vskip .1\baselineskip plus .1\baselineskip minus .1\baselineskip%
   \begin{adjustwidth}{\parindent}{\parindent}%
     \par\noindent\itshape}
