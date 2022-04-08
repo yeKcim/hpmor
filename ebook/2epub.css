@@ -1,0 +1,77 @@
+/*  
+┌┬┐┌─┐┌─┐┌─┐┌┐┌┌─┐┌─┐┌─┐┬  ┬    ┌┐ ┌─┐┌─┐┬─┐┌┬┐
+││││  │ ┬│ ││││├─┤│ ┬├─┤│  │    ├┴┐│ │├─┤├┬┘ ││
+┴ ┴└─┘└─┘└─┘┘└┘┴ ┴└─┘┴ ┴┴─┘┴─┘  └─┘└─┘┴ ┴┴└──┴┘  */
+@font-face {
+font-family: "Automobile Contest";
+font-weight: normal;
+font-style: normal;
+src: url("../fonts/Automobile Contest.ttf");
+}
+span.mcgonagallboard {
+	font: 5em "Automobile Contest";
+	color:#cc3333;
+	text-decoration: underline;
+	text-decoration-color:#3333cc;
+	text-decoration-thickness: 2px;
+}
+
+/*
+┌┐┌┌─┐┬ ┬┌─┐┌─┐┌─┐┌─┐┌─┐┬─┐  ┬ ┬┌─┐┌─┐┌┬┐┬  ┬┌┐┌┌─┐
+│││├┤ │││└─┐├─┘├─┤├─┘├┤ ├┬┘  ├─┤├┤ ├─┤ │││  ││││├┤ 
+┘└┘└─┘└┴┘└─┘┴  ┴ ┴┴  └─┘┴└─  ┴ ┴└─┘┴ ┴─┴┘┴─┘┴┘└┘└─┘  */
+@font-face {
+font-family: "gabriele-bad";
+font-weight: normal;
+font-style: normal;
+src: url("../fonts/gabriele-bad.ttf");
+}
+span.headline {
+	font: 1.2em "gabriele-bad";
+	color:#424242;
+}
+
+
+/* 
+┌─┐┌─┐┬─┐┌─┐┌─┐┬ ┌┬┐┌─┐┌┐┌┌─┐┬ ┬┌─┐
+├─┘├─┤├┬┘└─┐├┤ │  │ │ │││││ ┬│ │├┤ 
+┴  ┴ ┴┴└─└─┘└─┘┴─┘┴ └─┘┘└┘└─┘└─┘└─┘  */
+@font-face {
+font-family: "Parseltongue";
+font-weight: normal;
+font-style: normal;
+src: url("../fonts/Parseltongue.ttf");
+}
+
+span.parsel {
+	font: 1.2em "Parseltongue";
+	color:#003300;
+}
+
+
+/*
+┬ ┬┬─┐┬┌┬┐┌┬┐┌─┐┌┐┌┌┐┌┌─┐┌┬┐┌─┐
+│││├┬┘│ │  │ ├┤ │││││││ │ │ ├┤ 
+└┴┘┴└─┴ ┴  ┴ └─┘┘└┘┘└┘└─┘ ┴ └─┘	 */
+@font-face {
+font-family: "Graphe_Alpha_alt";
+font-weight: normal;
+font-style: normal;
+src: url("../fonts/Graphe_Alpha_alt.ttf");
+}
+
+div.adjustwidth { 
+	font: 1em "Graphe_Alpha_alt";
+	color:#3333cc;
+}
+
+
+
+/*
+┌┬┐┬┌─┐┌─┐
+││││└─┐│  
+┴ ┴┴└─┘└─┘	 */
+div.flushright{
+	margin-top: 6em;
+	text-align:right;
+}
