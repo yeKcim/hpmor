@@ -85,3 +85,4 @@ rm -f cover.pdf hpmor_epub.tex hpmor_flatten.tex hpmor.html
 # Essayer avec otf plutot que ttf ?
 # Il y a encore quelques « plus 1» et peut-être d’autres…
 # Quid des notes de bas de pages ?
+# check dependencies
