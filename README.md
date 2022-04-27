@@ -99,18 +99,13 @@ ln -s '…gitdirectory…/hpmor/spelling-list.txt' fr_FR.dic
 * Nouvelle couverture
 * Modifications difficiles à automatiser : - au lieu de — ou …, manque des - dans des nombres,…
 * Sortir une nouvelle version ([22.03](https://github.com/yeKcim/hpmor/releases/tag/v22.03) !)
-
-## Travail en cours
 * Correction du script d’export epub (pas de texte traduit dans le script, tous les \\ doivent disparaître, étrange \&nbssp;, tableau pas esthétique,…)
 * epub : Trop d’espaces dans les dialogues, pas de chapitrage, pas de polices intégrées, pas de notes d’auteur/traducteur correctement gérées…
+* Sortir une nouvelle version ([22.04](https://github.com/yeKcim/hpmor/releases/tag/v22.04) !)
+
+## Travail en cours
+* Prévoir une version mobi ?
 * Traduire les quelques extraits toujours en anglais
-* Vérification qu’il y a le même nombre de \\shout, \\scream, \\parsel,… que dans la VO
-```sh
-for f in *.tex; do {
- compte=$(grep -o "parsel{" $f | wc -l);
- if test $compte != "0"; then printf "$f : $compte\n"; fi;
-} done
-```
 * Toujours utiliser des styles, ne jamais mettre de code de mise en forme directement dans le contenu
 * Check erreurs/warnings LaTeX (missing characters,…)
 * etc.
