@@ -9,7 +9,7 @@ cd $script_dir/..
 # ╔═╗╦╔═╗╔╦╗╦ ╦╦═╗╔═╗╔═╗
 # ╠═╝║║   ║ ║ ║╠╦╝║╣ ╚═╗
 # ╩  ╩╚═╝ ╩ ╚═╝╩╚═╚═╝╚═╝
-# pdf to optimized png
+echo "1. pictures: pdf to optimized png"
 cp {hpmor,cover}.pdf
 for file in "cover" "bubble" "Deathly_Hallows_Sign"; do 	# convert pdf to png
   pdftoppm -png -singlefile $file.pdf $file
@@ -19,19 +19,21 @@ done
 # ╔╦╗╔═╗═╗ ╦  ╔╦╗╔═╗╔╦╗╦╔═╗
 #  ║ ║╣ ╔╩╦╝  ║║║║ ║ ║║║╠╣ 
 #  ╩ ╚═╝╩ ╚═  ╩ ╩╚═╝═╩╝╩╚  
+echo "2. modify hpmor_epub.tex"
 sed '3i\\\input{hp-format}\n\\input{hp-markup}\n' hpmor.tex > hpmor_epub.tex
 sed -i '/\\\input{hp-contents}/d' hpmor_epub.tex
 
 # ╔╦╗╔═╗  ╔═╗╦  ╔═╗╔╦╗╔╦╗╔═╗╔╗╔
 #  ║ ║ ║  ╠╣ ║  ╠═╣ ║  ║ ║╣ ║║║
 #  ╩ ╚═╝  ╚  ╩═╝╩ ╩ ╩  ╩ ╚═╝╝╚╝
+echo "3. to flatten.tex"
 # convert multiple tex files to one flatten.tex
 latexpand hpmor_epub.tex -o hpmor_flatten.tex
 
 # ╔╦╗╔═╗╔╦╗╦╔═╗
 # ║║║║ ║ ║║║╠╣ 
 # ╩ ╩╚═╝═╩╝╩╚  
-
+echo "4. modif flatten.tex"
 sed -i '/\\begin{headlines}/d ; /\\end{headlines}/d' hpmor_flatten.tex		# - \headlines (can't generate epub)
 sed -i 's/\.pdf/\.png/g' hpmor_flatten.tex
 
@@ -53,11 +55,13 @@ sed -i '/^\\def{\\ifnum\\prevgraf/,/^\\fi}/d;' hpmor_flatten.tex
 # ╔╦╗╔═╗  ╦ ╦╔╦╗╔╦╗╦  
 #  ║ ║ ║  ╠═╣ ║ ║║║║  
 #  ╩ ╚═╝  ╩ ╩ ╩ ╩ ╩╩═╝
+echo "5. to html"
 pandoc -s hpmor_flatten.tex -o hpmor.html -f latex+latex_macros --metadata title="$title"
 
 # ╔╦╗╔═╗╔╦╗╦╔═╗
 # ║║║║ ║ ║║║╠╣ 
 # ╩ ╩╚═╝═╩╝╩╚  
+echo "6. modif hpmor.html"
 sed -i 's/<span style=\"color: YellowOrange\">/<span class=\"parsel\">/g' hpmor.html
 sed -i 's/<span style=\"color: YellowGreen\">/<span class=\"headline\">/g' hpmor.html
 sed -i 's/<span style=\"color: red\">/<span class=\"mcgonagallboard\">/g' hpmor.html
@@ -67,12 +71,13 @@ sed -i '/<p>‘ ‘ ‘ ‘ ‘̇ ‘  ‘ ‘ ‘ ‘<\/p>/,/bubble.png/d' hp
 # ╔╦╗╔═╗  ╔═╗╔═╗╦ ╦╔╗ 
 #  ║ ║ ║  ║╣ ╠═╝║ ║╠╩╗
 #  ╩ ╚═╝  ╚═╝╩  ╚═╝╚═╝
+echo "7. modif hpmor.html"
 pandoc -s hpmor.html -o hpmor.epub --metadata title="$title" --metadata author="$author" --epub-cover-image="cover.png" --epub-chapter-level=2 --epub-embed-font="./fonts/automobile_contest/Automobile Contest.ttf" --epub-embed-font="./fonts/graphe/Graphe_Alpha_alt.ttf" --epub-embed-font="./fonts/Parseltongue/Parseltongue.ttf" --epub-embed-font="./fonts/graphe/Graphe_Alpha_alt.ttf" --epub-embed-font="./fonts/gabriele_bad_ah/gabriele-bad.ttf" -c "./ebook/2epub.css"
-
 
 # ╔╦╗╔═╗╦  ╔═╗╔╦╗╔═╗  ╔╦╗╔╦╗╔═╗  ╔═╗╦╦  ╔═╗╔═╗
 #  ║║║╣ ║  ║╣  ║ ║╣    ║ ║║║╠═╝  ╠╣ ║║  ║╣ ╚═╗
 # ═╩╝╚═╝╩═╝╚═╝ ╩ ╚═╝   ╩ ╩ ╩╩    ╚  ╩╩═╝╚═╝╚═╝
+echo "8. cleanup"
 for file in "cover" "bubble" "Deathly_Hallows_Sign"; do 	# del png
   rm -f $file.png
 done
