@@ -61,8 +61,7 @@ jobs:
         prerelease: true
         files: |
           ./hpmor*.pdf
-          ebook/output/hpmor.epub
-          ebook/output/hpmor.mobi
+          ./hpmor.epub
 
     - name: print end date
       run: date +%Y-%m-%d_%H:%M
