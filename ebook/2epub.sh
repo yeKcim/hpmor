@@ -23,6 +23,9 @@ echo "2. modify hpmor_epub.tex"
 sed '3i\\\input{hp-format}\n\\input{hp-markup}\n' hpmor.tex > hpmor_epub.tex
 sed -i '/\\\input{hp-contents}/d' hpmor_epub.tex
 
+# overwrite the headlines env, since it makes problems in pandoc
+sed -i '10i\\\renewenvironment{headlines}{\\begin{scshape}\\scshape}{\\end{scshape}}\n' hpmor_epub.tex
+
 # ╔╦╗╔═╗  ╔═╗╦  ╔═╗╔╦╗╔╦╗╔═╗╔╗╔
 #  ║ ║ ║  ╠╣ ║  ╠═╣ ║  ║ ║╣ ║║║
 #  ╩ ╚═╝  ╚  ╩═╝╩ ╩ ╩  ╩ ╚═╝╝╚╝
@@ -34,7 +37,9 @@ latexpand hpmor_epub.tex -o hpmor_flatten.tex
 # ║║║║ ║ ║║║╠╣ 
 # ╩ ╩╚═╝═╩╝╩╚  
 echo "4. modif flatten.tex"
-sed -i '/\\begin{headlines}/d ; /\\end{headlines}/d' hpmor_flatten.tex		# - \headlines (can't generate epub)
+
+# see above
+# sed -i '/\\begin{headlines}/d ; /\\end{headlines}/d' hpmor_flatten.tex		# - \headlines (can't generate epub)
 sed -i 's/\.pdf/\.png/g' hpmor_flatten.tex
 
 # Cant find a way to add directly font or class name in span… ⇒ hack: add color → class
