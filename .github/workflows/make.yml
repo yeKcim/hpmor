@@ -12,7 +12,8 @@ on:
 jobs:
   job1:
     # runs-on: ubuntu-20.04
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
+    # runs-on: ubuntu-latest
     steps:
 
 # Initialize
@@ -26,7 +27,7 @@ jobs:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
-    - name: Python setup
+    - name: python setup
       uses: actions/setup-python@v2
       with:
         python-version: '3.9'
@@ -36,16 +37,24 @@ jobs:
         pwd
         ls -l
 
-    - name: Quality check of chapters for known issues
+    - name: quality check of chapters for known issues
       run: python3 check-chapters.py
 
-    - name: Install requirements
+    - name: install requirements
       run: sh install_requirements.sh
 
-    - name: Make PDFs
+    - name: print versions
+      run: |
+        cat /etc/os-release
+        xelatex -v
+        latexmk -v
+        pandoc -v
+        python3 --version   
+        
+    - name: make PDFs
       run: sh make_pdfs.sh
 
-    - name: Make eBooks
+    - name: make eBooks
       run: sh make_ebooks.sh
 
     - name: test ls after
@@ -61,8 +70,7 @@ jobs:
         prerelease: true
         files: |
           ./hpmor*.pdf
-          ebook/output/hpmor.epub
-          ebook/output/hpmor.mobi
+          ./hpmor.epub
 
     - name: print end date
       run: date +%Y-%m-%d_%H:%M
