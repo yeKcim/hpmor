@@ -75,3 +75,8 @@ div.flushright{
 	margin-top: 6em;
 	text-align:right;
 }
+
+/* nested \emphs */
+em { font-style: italic;}
+em em { font-style: normal;}
+em em em { font-style: italic;}
